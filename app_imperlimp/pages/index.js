@@ -12,9 +12,8 @@ export default function Home() {
 
   const [status, setStatus] = useState("");
 
-  // Preenche automaticamente a data com o dia de hoje
   useEffect(() => {
-    const hoje = new Date().toISOString().split("T")[0]; // yyyy-mm-dd
+    const hoje = new Date().toISOString().split("T")[0];
     setForm((prev) => ({ ...prev, data: hoje }));
   }, []);
 
@@ -57,7 +56,9 @@ export default function Home() {
 
   return (
     <div className="max-w-xl mx-auto p-6 bg-white text-black min-h-screen">
-      <h1 className="text-2xl font-bold mb-4 text-center">Registro de Serviços</h1>
+      <h1 className="text-2xl font-bold mb-4 text-center">
+        Registro de Serviços
+      </h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block text-sm mb-1">Data</label>
@@ -151,6 +152,15 @@ export default function Home() {
 
         <p className="text-sm mt-2 text-center">{status}</p>
       </form>
+
+      <div className="text-center mt-6">
+        <a
+          href="/dashboard"
+          className="inline-block bg-gray-200 text-black px-4 py-2 rounded hover:bg-gray-300"
+        >
+          📊 Acessar Dashboard
+        </a>
+      </div>
     </div>
   );
 }
